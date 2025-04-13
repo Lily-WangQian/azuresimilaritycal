@@ -12,6 +12,8 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'pdf'}
 
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
 # Load pre-trained BERT model for sentence embeddings
 bert_model = SentenceTransformer('all-MiniLM-L6-v2')
 
